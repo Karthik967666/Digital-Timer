@@ -1,5 +1,3 @@
-import {ToastContainer, toast} from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 import {Component} from 'react'
 import './index.css'
 
@@ -28,18 +26,6 @@ class DigitalTimer extends Component {
     this.clearTimer()
   }
 
-  notifyTimerReset = message => {
-    toast.info(`🦄 ${message}`, {
-      position: 'top-center',
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-    })
-  }
-
   decreaseTimerLimit = () => {
     const {timerLimit} = this.state
     if (timerLimit > 1) {
@@ -47,18 +33,6 @@ class DigitalTimer extends Component {
     } else {
       this.notifyErrorLimit('Timer cant be less than a minute')
     }
-  }
-
-  notifyErrorLimit = message => {
-    toast.warn(`🦄 ${message}`, {
-      position: 'top-center',
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-    })
   }
 
   incrementTimerLimit = () => {
@@ -77,18 +51,6 @@ class DigitalTimer extends Component {
         currentRunningSeconds: prevState.currentRunningSeconds + 1,
       }))
     }
-  }
-
-  notifyTimerCompleted = message => {
-    toast(`🦄 ${message}`, {
-      position: 'top-center',
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-    })
   }
 
   startStopTimer = () => {
@@ -214,17 +176,6 @@ class DigitalTimer extends Component {
             {this.renderSetTimerControls()}
           </div>
         </div>
-        <ToastContainer
-          position="top-center"
-          autoClose={2000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover={false}
-        />
       </div>
     )
   }
